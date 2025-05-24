@@ -38,6 +38,7 @@ const frontendWhiteList = [
   '/wallet/init',
 
   '/desk_user/login',
+  '/desk_user/auto_login',
   '/desk_user/create',
   '/desk_user/update_by_uuid',
   '/desk_user/link_verify',
@@ -52,6 +53,7 @@ const frontendWhiteList = [
   '/invite/keep_alive',
 
   '/ws/keep_alive',
+  '/ws/send_msg',
 
   '/screen_wall/set_img',
   '/screen_wall/add_group',
@@ -60,6 +62,8 @@ const frontendWhiteList = [
   '/screen_wall/del_data',
   '/screen_wall/del_group',
   '/screen_wall/edit_group',
+
+  '/login_record/create',
 ];
 
 // 全局白名单
@@ -85,9 +89,13 @@ export const apiBeforeVerify = async (ctx: ParameterizedContext, next) => {
     );
   };
 
+  console.log(chalk.blueBright('url:'), url);
+  console.log(chalk.blueBright('method:'), ctx.method);
   console.log(chalk.blueBright('query:'), { ...ctx.request.query });
   console.log(chalk.blueBright('params:'), ctx.params);
-  console.log(chalk.blueBright('body:'), { ...ctx.request.body });
+  if (!['/screen_wall/set_img'].includes(url)) {
+    console.log(chalk.blueBright('body:'), { ...ctx.request.body });
+  }
   console.log(chalk.blueBright('referer:'), ctx.request.header.referer);
   console.log(chalk.blueBright('cookie:'), ctx.request.header.cookie);
   console.log(chalk.blueBright('token:'), ctx.request.headers.authorization);

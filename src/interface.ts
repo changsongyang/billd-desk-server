@@ -30,6 +30,7 @@ export interface IDeskConfig {
 export enum DeskConfigTypeEnum {
   electronVersionConfig = 'electronVersionConfig',
   flutterVersionConfig = 'flutterVersionConfig',
+  turnserver = 'turnserver',
 }
 
 export interface IDeskVersion {
@@ -206,14 +207,22 @@ export enum SwitchEnum {
 }
 
 export enum ClientEnvEnum {
-  android,
-  ios,
-  ipad,
-  web,
-  web_mobile,
-  web_pc,
-  windows,
-  macos,
+  android = 'android',
+  ios = 'ios',
+  ipad = 'ipad',
+  web = 'web',
+  web_mobile = 'web_mobile',
+  web_pc = 'web_pc',
+  windows = 'windows',
+  macos = 'macos',
+  linux = 'linux',
+}
+
+export enum ClientAppEnum {
+  billd_live = 'billd_live',
+  billd_live_admin = 'billd_live_admin',
+  billd_desk = 'billd_desk',
+  billd_desk_admin = 'billd_desk_admin',
 }
 
 export interface IDeskUser {
@@ -258,6 +267,7 @@ export enum GlobalMsgTypeEnum {
   system = 'system',
   activity = 'activity',
   notification = 'notification',
+  alwaysRedMsg = 'alwaysRedMsg',
 }
 
 export interface IGlobalMsg {
@@ -273,6 +283,21 @@ export interface IGlobalMsg {
   remark?: string;
 
   user?: IUser;
+
+  created_at?: string;
+  updated_at?: string;
+  deleted_at?: string;
+}
+
+export interface ILoginRecord {
+  id?: number;
+  uuid?: string;
+  user_agent?: string;
+  client_ip?: string;
+  client_env?: ClientEnvEnum;
+  client_app?: ClientAppEnum;
+  client_app_version?: string;
+  remark?: string;
 
   created_at?: string;
   updated_at?: string;

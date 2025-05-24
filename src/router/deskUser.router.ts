@@ -9,6 +9,8 @@ deskUserRouter.get(
   deskUserController.findReceiverByUuid
 );
 
+deskUserRouter.post('/auto_login', deskUserController.autoLogin);
+
 deskUserRouter.post('/login', deskUserController.login);
 
 deskUserRouter.post('/link_verify', deskUserController.linkVerify);

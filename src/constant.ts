@@ -16,24 +16,27 @@ export const PROJECT_PORT = process.env.NODE_APP_RELEASE_PROJECT_PORT as string;
 export const PROJECT_NODE_ENV = process.env.NODE_ENV as string;
 export const PROJECT_INIT_MYSQL = process.env.NODE_APP_INIT_MYSQL as string;
 
-export const CORS_ALLOW_ORIGIN: string | string[] = [
-  `http://www.${PROD_DOMAIN}`,
-  `https://www.${PROD_DOMAIN}`,
-  `http://admin.${PROD_DOMAIN}`,
-  `https://admin.${PROD_DOMAIN}`,
-  `http://live.${PROD_DOMAIN}`,
-  `https://live.${PROD_DOMAIN}`,
-  `http://live-admin.${PROD_DOMAIN}`,
-  `https://live-admin.${PROD_DOMAIN}`,
-  `http://nuxt2.${PROD_DOMAIN}`,
-  `https://nuxt2.${PROD_DOMAIN}`,
-  `http://next.${PROD_DOMAIN}`,
-  `https://next.${PROD_DOMAIN}`,
-  `http://project.${PROD_DOMAIN}`,
-  `https://project.${PROD_DOMAIN}`,
-  `http://desk.${PROD_DOMAIN}`,
-  `https://desk.${PROD_DOMAIN}`,
-];
+export const CORS_ALLOW_ORIGIN: string | string[] =
+  PROJECT_NODE_ENV === 'development'
+    ? '*'
+    : [
+        `http://www.${PROD_DOMAIN}`,
+        `https://www.${PROD_DOMAIN}`,
+        `http://admin.${PROD_DOMAIN}`,
+        `https://admin.${PROD_DOMAIN}`,
+        `http://live.${PROD_DOMAIN}`,
+        `https://live.${PROD_DOMAIN}`,
+        `http://live-admin.${PROD_DOMAIN}`,
+        `https://live-admin.${PROD_DOMAIN}`,
+        `http://nuxt2.${PROD_DOMAIN}`,
+        `https://nuxt2.${PROD_DOMAIN}`,
+        `http://next.${PROD_DOMAIN}`,
+        `https://next.${PROD_DOMAIN}`,
+        `http://project.${PROD_DOMAIN}`,
+        `https://project.${PROD_DOMAIN}`,
+        `http://desk.${PROD_DOMAIN}`,
+        `https://desk.${PROD_DOMAIN}`,
+      ];
 
 /** 消息最大长度 */
 export const MSG_MAX_LENGTH = 200;
@@ -128,6 +131,8 @@ export const COMMON_SUCCESS_MSG = {
 
   loginSuccess: '登录成功！',
 };
+
+export const SUPER_ADMIN_UUID = ['superhss'];
 
 export const SCHEDULE_TYPE = {
   liveRoomIsLive: 'liveRoomIsLive',
