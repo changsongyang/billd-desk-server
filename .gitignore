@@ -1,4 +1,11 @@
-deploy
 node_modules
-package.json
-pnpm-lock.yaml
+.DS_Store
+/dist
+/src/secret/secret.ts
+/src/secret/secret-remote-dev.ts
+/public/**/*
+/upload/**/*
+/webm/**/*
+!/public/README.md
+!/upload/README.md
+!/webm/README.md
